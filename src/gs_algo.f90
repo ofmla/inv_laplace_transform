@@ -2,6 +2,7 @@ program gaver_stehfest
     use, intrinsic :: iso_fortran_env, only: wp => real64
     integer, parameter :: n = 69, tpts = 100
     integer, parameter :: gsn = 16 ! Stehfest Parameter gsn (6 < gsn < 20; only even number)
+    integer :: i
     real(wp), parameter :: factorial(*) = [(gamma(real(i + 1, kind=wp)), i = 1, n)]
     real(wp), parameter :: ln2 = dlog(2._wp)
     real(wp) :: wgt(gsn), tarray(tpts), a, b, step
