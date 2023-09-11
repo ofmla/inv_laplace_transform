@@ -4,7 +4,7 @@ program gaver_stehfest
     integer, parameter :: gsn = 16 ! Stehfest Parameter gsn (6 < gsn < 20; only even number)
     integer :: i
     real(wp), parameter :: factorial(*) = [(gamma(real(i + 1, kind=wp)), i = 1, n)]
-    real(wp), parameter :: ln2 = dlog(2._wp)
+    real(wp), parameter :: ln2 = log(2._wp)
     real(wp) :: wgt(gsn), tarray(tpts), a, b, step
 
     abstract interface
@@ -29,7 +29,7 @@ program gaver_stehfest
     do i=1,tpts
         a = dexp(-tarray(i))
         b = gs_evaluate (tarray(i), wgt, fun1)
-        write(10,*) tarray(i), a, b, dabs(b-a)/a
+        write(10,*) tarray(i), a, b, abs(b-a)/a
     enddo
 
     contains
