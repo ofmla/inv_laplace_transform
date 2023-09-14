@@ -18,7 +18,7 @@ program gaver_stehfest
     call gs_weights(wgt)
     tarray(1) = 1.d-6
     tarray(100) = 5._wp
-    step = (5._wp-1.d-6)/real(tpts-1,kind=wp)
+    step = (5._wp-1.d-6_wp)/real(tpts-1,kind=wp)
     do i= 2, tpts-1
      tarray(i) = tarray(i-1) + step
     enddo
@@ -27,7 +27,7 @@ program gaver_stehfest
     ! approximate f(t) by Gaver Stehfest algorithm given
     ! we know its laplace transform F(s)
     do i=1,tpts
-        a = dexp(-tarray(i))
+        a = exp(-tarray(i))
         b = gs_evaluate (tarray(i), wgt, fun1)
         write(10,*) tarray(i), a, b, abs(b-a)/a
     enddo
