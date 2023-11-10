@@ -31,11 +31,13 @@ jobs:
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
     
-    - name: Run NILP app test
+    - name: Get compiler
       uses: fortran-lang/setup-fortran@v1
       with:
         compiler: ${{ matrix.toolchain.compiler }}
         version: ${{ matrix.toolchain.version }}
+
+    - name: Run NILP app test
       run: |
         ${{ env.FC }} --version
         FPM_FC=${{ env.FC }} fpm run --target gs-prog --profile release --V
