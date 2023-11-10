@@ -40,5 +40,5 @@ jobs:
     - name: Run NILP app test
       run: |
         ${{ env.FC }} --version
-        FPM_FC=${{ env.FC }} fpm run --target gs-prog --profile release --V
+        fpm run --target gs-prog --profile release --V
         rm -rf build
