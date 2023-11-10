@@ -18,6 +18,6 @@ fpm run --target gs-prog --profile release --V
 ```
 you will get an ASCII datafile in multicolumn format. You can produce a plot giving the ASCII file as standard input to gnuplot.
 ```
-plot 'fort.10' u 1: 2 w l, 'fort.10' u 1:3 w lp
+plot 'fort.10' u 1: 2 w l t 'analytic', 'fort.10' u 1:3 w lp t 'numeric'
 ```
 
