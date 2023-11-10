@@ -41,4 +41,3 @@ jobs:
       run: |
         ${{ env.FC }} --version
         fpm run --target gs-prog --profile release --V
-        rm -rf build
