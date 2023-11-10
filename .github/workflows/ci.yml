@@ -2,7 +2,7 @@ name: Continuous Integration
 
 on:
   # To run manually
-  workflow_dispatch:
+  [workflow_dispatch]
 
 jobs:
   test:
