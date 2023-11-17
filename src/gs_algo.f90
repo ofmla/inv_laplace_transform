@@ -29,7 +29,7 @@ program gaver_stehfest
     do i=1,tpts
         a = exp(-tarray(i))
         b = gs_evaluate (tarray(i), wgt, fun1)
-        write(10,*) tarray(i), a, b, abs(b-a)/a
+        write(10,'(4(ES15.7,1X))') tarray(i), a, b, abs(b-a)/a
     enddo
 
     contains
