@@ -16,8 +16,9 @@ A [Fortran Package Manager](https://github.com/fortran-lang/fpm) (FPM) manifest 
 ```
 fpm run --target gs-prog --profile release --V
 ```
-you will get an ASCII datafile in multicolumn format. You can produce a plot giving the ASCII file as standard input to gnuplot.
+you will get an ASCII datafile in multicolumn format. You can produce a plot like the one below giving the ASCII file as standard input to gnuplot.
 ```
 plot 'fort.10' u 1: 2 w l t 'analytic', 'fort.10' u 1:3 w lp t 'numeric'
 ```
+![alt text](https://raw.githubusercontent.com/ofmla/inv_laplace_transform/main/png/nilp.png)
 
