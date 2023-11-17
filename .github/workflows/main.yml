@@ -41,3 +41,24 @@ jobs:
       run: |
         ${{ env.FC }} --version
         fpm run --target gs-prog --profile release --V
+
+    - name: get png file
+      if: ${{ (matrix.os == 'ubuntu-latest') && (matrix.toolchain.compiler == 'gcc') }}
+      run: |
+        sudo apt-get -y install gnuplot
+        gnuplot nilp.p
+
+    - name: commit
+      if: ${{ (matrix.os == 'ubuntu-latest') && (matrix.toolchain.compiler == 'gcc') }}
+      uses: stefanzweifel/git-auto-commit-action@v4
+      with:
+          commit_message: Commit to Github
+          file_pattern: '*.png'
+
+    - name: upload png file
+      if: ${{ (matrix.os == 'ubuntu-latest') && (matrix.toolchain.compiler == 'gcc') }}
+      uses: actions/upload-artifact@v2
+      with:
+        name: Graphic
+        path: |
+          png/*.png
