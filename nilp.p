@@ -1,5 +1,5 @@
 # Set the output to a png file
-set terminal png medium size 640,480
+set terminal pngcairo size 640,480
 # The file we'll write to
 set output 'png/nilp.png'
 # plot the graphic
